@@ -30,12 +30,12 @@ export function HomePage() {
 
   return (
 
-    <section className='flex justify-center pt-10 mx-auto h-screen w-screen'>
+    <section className='flex justify-center pt-10 mx-auto h-full w-full'>
       {isError && <p>Somethung went wrong... {isError}</p>}
       <div className='relative w-[560px]'>
         <input
           type="text"
-          className='border py-2 px-4 w-full h-[42px] mb-2 '
+          className='border py-2 px-4 w-full h-[42px] mb-2 focus:outline-none'
           placeholder="Search for Github username..."
           value={search}
           onChange={e => setSearch(e.target.value)}
@@ -56,7 +56,7 @@ export function HomePage() {
         </ul>}
         <div className="container list-repos">
           {areReposLoading && <p className="text-center">Repos are loading...</p>}
-          {repos?.map( repo => <RepoCard repo={repo} key={repo.id} />)}
+          {repos?.length === 0 ? <h2 className='text-[24px] font-bold text-center mt-[20px]'>Публичные репозитории отсутствуют</h2> : repos?.map( repo => <RepoCard repo={repo} key={repo.id} />)}
         </div>
 
       </div>
