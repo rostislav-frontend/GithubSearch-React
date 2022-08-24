@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <div className="container">
+      <div className="container mx-auto">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/favourites" element={<FavouritesPage />} />
